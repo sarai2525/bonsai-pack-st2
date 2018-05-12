@@ -5,9 +5,16 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint --fix ./src/js/**/*.js ./src/js/*.js",
+    "lint": "eslint --fix ./src/js/*",
+    "precommit": "lint-staged",
     "build": "webpack --config ./build/webpack.production.config.js && rm ./dist/style.*.js ./dist/style.css",
     "watch": "webpack --config ./build/webpack.develop.config.js --watch && rm ./dist/style.*.js"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0-beta.46",
@@ -31,6 +38,8 @@
     "eslint-watch": "^3.1.4",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "glob": "^7.1.2",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.1.0",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.9.0",
     "optimize-css-assets-webpack-plugin": "^4.0.1",
