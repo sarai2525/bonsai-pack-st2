@@ -5,6 +5,7 @@ export default class Console {
     this.log = log
     this.bind()
   }
+
   bind() {
     console.log(this.log)
   }

@@ -2,6 +2,6 @@
 
 import Console from '@/components/console'
 
-const cons = new Console('tomato')
+const cons = new Console('potato')
 
 cons()
