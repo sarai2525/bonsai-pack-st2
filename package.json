@@ -5,7 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint --fix --ext src/js/** --ignore-path .gitignore .",
+    "lint": "eslint --fix ./src/js/**/*.js ./src/js/*.js",
     "build": "webpack --config ./build/webpack.production.config.js && rm ./dist/style.*.js ./dist/style.css",
     "watch": "webpack --config ./build/webpack.develop.config.js --watch && rm ./dist/style.*.js"
   },

@@ -26,14 +26,14 @@ module.exports = () => {
   return Object.assign(getWebpackConfig(), {
     output: {
       path: path.resolve(projectRoot, 'dist'),
-      filename: '[name].js',
+      filename: '[name].js'
     },
     module: {
       rules: [
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          use: { loader: 'babel-loader' },
+          use: { loader: 'babel-loader' }
         },
         {
           test: /\.s?[ac]ss$/,
@@ -41,19 +41,19 @@ module.exports = () => {
           use: [
             { loader: MiniCssExtractPlugin.loader },
             { loader: 'css-loader' },
-            { loader: 'sass-loader' },
-          ],
-        },
-      ],
+            { loader: 'sass-loader' }
+          ]
+        }
+      ]
     },
     resolve: {
       extensions: ['.js'],
       modules: [path.resolve(SRC), 'node_modules'],
-      alias: { '@': SRC },
+      alias: { '@': SRC }
     },
     externals: {
       $: 'jquery',
-      jQuery: 'jquery',
+      jQuery: 'jquery'
     },
     optimization: {
       splitChunks: {
@@ -61,22 +61,22 @@ module.exports = () => {
         cacheGroups: {
           vendor: {
             name: 'vendor',
-            chunks: 'initial',
+            chunks: 'initial'
           },
           styles: {
             name: 'style',
             test: /\.css$/,
             chunks: 'all',
-            enforce: true,
-          },
-        },
-      },
+            enforce: true
+          }
+        }
+      }
     },
     plugins: [
       new webpack.optimize.OccurrenceOrderPlugin(),
       new FriendlyErrorsWebpackPlugin(),
-      new MiniCssExtractPlugin(),
+      new MiniCssExtractPlugin()
     ],
-    stats: 'none',
+    stats: 'none'
   })
 }
