@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf dist/*",
-    "pug": "pug -H -P -o dist/ -b src/pug/**",
+    "pug": "pug -H -o dist/ -b src/pug/**",
     "copy": "mkdirp dist/assets && cp -r src/img/ dist/assets/img/ && cp -r src/fonts/ dist/assets/fonts/ && cp -r src/movie/ dist/assets/movie/",
     "build": "run-p build:*",
     "build:pug": "yarn run pug",
