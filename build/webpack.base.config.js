@@ -25,8 +25,8 @@ const getWebpackConfig = () => {
 module.exports = () => {
   return Object.assign(getWebpackConfig(), {
     output: {
-      path: path.resolve(projectRoot, 'dist'),
-      filename: '[name].js'
+      path: path.resolve(projectRoot, 'dist/assets'),
+      filename: 'js/[name].js'
     },
     module: {
       rules: [
@@ -83,7 +83,9 @@ module.exports = () => {
     plugins: [
       new webpack.optimize.OccurrenceOrderPlugin(),
       new FriendlyErrorsWebpackPlugin(),
-      new MiniCssExtractPlugin()
+      new MiniCssExtractPlugin({
+        filename: 'css/[name].css'
+      })
     ],
     stats: 'none'
   })
