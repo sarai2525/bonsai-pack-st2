@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "pug": "pug -H -P -o dist/ -b src/pug/**",
-    "copy": "mkdirp dist/assets && cp -r src/img/ dist/assets/img/ && cp -r src/fonts/ dist/assets/fonts/",
+    "copy": "mkdirp dist/assets && cp -r src/img/ dist/assets/img/ && cp -r src/fonts/ dist/assets/fonts/ && cp -r src/movie/ dist/assets/movie/",
     "build": "run-p build:*",
     "build:pug": "yarn run pug",
     "build:webpack": "webpack --config ./build/webpack.production.config.js && rm ./dist/assets/js/style.js",
@@ -14,7 +14,7 @@
     "watch": "run-p watch:*",
     "watch:pug": "yarn run pug -- -w -P",
     "watch:webpack": "webpack --config ./build/webpack.develop.config.js --watch",
-    "watch:image": "watch 'yarn run copy' ./src/img/",
+    "watch:img": "watch 'yarn run copy' ./src/img/",
     "watch:server": "browser-sync start --server --serveStatic dist --files 'dist/assets/css/*.css, dist/assets/js/*.js, **/*.html'",
     "lint": "run-p lint:*",
     "lint:js": "eslint --fix ./src/js/**",
