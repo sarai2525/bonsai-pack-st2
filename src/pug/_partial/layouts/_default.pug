@@ -1,26 +1,18 @@
 block var
   -
-    metas = {}
-    metas.title = null;
-    metas.url = null;
-    metas.keyword = null;
-    metas.description = null;
-    metas.og_image = null;
-  -
-    path = {}
-    path.css = '/assets/css/';
-    path.js = '/assets/js/';
-    path.img = '/assets/images/';
-    path.fonts = '/assets/fonts/';
-    path.mov = '/assets/movie/';
-  -
-    link = {}
-    link.top = '/';
+    var metas = {
+      title: '',
+      url: '',
+      keyword: '',
+      description: '',
+      og_image: ''
+    }
 
 doctype html
 html
   head
     meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name="viewport", content="width=device-width, initial-scale=1")
     block title
       title= (metas.title || '')
@@ -32,14 +24,12 @@ html
       meta(property="og:keywords" content=(metas.keyword || ''))
       meta(property="og:type" content="website")
       meta(property="og:url" content=(metas.url || ''))
-      meta(property="og:image" content=(metas.og_image || '/assets/images/og_image.jpg'))
+      meta(property="og:image" content=(metas.og_image || '/assets/img/og_image.jpg'))
       meta(property="og:image:width" content="1200")
       meta(property="og:image:height" content="600")
       meta(property="og:site_name" content=(metas.title || ''))
       meta(name="robots" content="index,follow")
-      meta(name="viewport" content="width=device-width, initial-scale=1")
-    link(rel='shortcut icon' href='/assets/images/favicon.ico')
-    link(rel='stylesheet', href='/assets/stylesheets/style.css?' + new Date().getTime())
-    script(src='/assets/js/vendor.js?' + new Date().getTime())
+    link(rel='shortcut icon' href='/assets/img/favicon.ico')
+    link(rel='stylesheet', href='/assets/css/style.css?' + new Date().getTime())
+    script(src='assets/js/vendor.js?' + new Date().getTime())
   block content
-  script(src='/assets/js/app/index.bundle.js?' + new Date().getTime())
