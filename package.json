@@ -13,7 +13,7 @@
     "build:copy": "yarn run copy",
     "watch": "run-p watch:*",
     "watch:pug": "yarn run pug -- -w -P",
-    "watch:css-js": "webpack --config ./build/webpack.develop.config.js --watch",
+    "watch:webpack": "webpack --config ./build/webpack.develop.config.js --watch",
     "watch:image": "watch 'yarn run copy' ./src/img/",
     "watch:server": "browser-sync start --server --serveStatic dist --files 'dist/assets/css/*.css, dist/assets/js/*.js, **/*.html'",
     "lint": "run-p lint:*",
