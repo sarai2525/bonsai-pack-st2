@@ -9,20 +9,21 @@
     "copy": "mkdirp dist/assets && cp -r src/img/ dist/assets/img/ && cp -r src/fonts/ dist/assets/fonts/",
     "build": "run-p build:*",
     "build:pug": "yarn run pug",
-    "build:css-js": "webpack --config ./build/webpack.production.config.js && rm ./dist/assets/js/style.js",
+    "build:webpack": "webpack --config ./build/webpack.production.config.js && rm ./dist/assets/js/style.js",
     "build:copy": "yarn run copy",
     "watch": "run-p watch:*",
     "watch:pug": "yarn run pug -- -w -P",
     "watch:css-js": "webpack --config ./build/webpack.develop.config.js --watch",
     "watch:image": "watch 'yarn run copy' ./src/img/",
     "watch:server": "browser-sync start --server --serveStatic dist --files 'dist/assets/css/*.css, dist/assets/js/*.js, **/*.html'",
-    "lint": "eslint --fix ./src/js/*",
+    "lint": "run-p lint:*",
+    "lint:js": "eslint --fix ./src/js/**",
+    "lint:sass": "prettier --write ./src/css/**/*.scss",
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "src/**/*.js": [
-      "eslint --fix",
-      "git add"
+    "src/*.{js,scss}": [
+      "yarn run lint"
     ]
   },
   "dependencies": {
