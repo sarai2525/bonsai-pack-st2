@@ -11,7 +11,7 @@
     "build:pug": "yarn run pug",
     "build:webpack": "webpack --config ./build/webpack.production.config.js && rm ./dist/assets/js/style.js",
     "build:copy": "yarn run copy",
-    "watch": "run-p watch:*",
+    "dev": "run-p watch:*",
     "watch:pug": "yarn run pug -- -w -P",
     "watch:webpack": "webpack --config ./build/webpack.develop.config.js --watch",
     "watch:img": "watch 'yarn run copy' ./src/img/",
