@@ -5,6 +5,7 @@ const projectRoot = path.resolve(__dirname, '../')
 const SRC = path.resolve(projectRoot, 'src/js')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const AutoPreFixer = require('autoprefixer')
 
 const getWebpackConfig = () => {
   const REG_SRC = new RegExp(`${SRC}/(.+).js`)
@@ -39,17 +40,20 @@ module.exports = () => {
           test: /\.s?[ac]ss$/,
           exclude: /node_modules/,
           use: [
-            { loader: MiniCssExtractPlugin.loader },
-            { loader: 'css-loader' },
+            MiniCssExtractPlugin.loader,
+            'css-loader',
             {
               loader: 'postcss-loader',
               options: {
                 plugins: [
-                  require('autoprefixer')({ browsers: 'last 3 versions' })
+                  AutoPreFixer({
+                    browsers: ['IE 10', 'IE 11', 'last 3 versions'],
+                    grid: true
+                  })
                 ]
               }
             },
-            { loader: 'sass-loader' }
+            'sass-loader'
           ]
         }
       ]

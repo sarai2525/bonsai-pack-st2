@@ -23,8 +23,13 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "src/*.{js,scss}": [
-      "yarn run lint"
+    "src/**/*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "src/**/*.scss": [
+      "prettier --write",
+      "git add"
     ]
   },
   "dependencies": {
