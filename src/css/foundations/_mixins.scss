@@ -1,0 +1,72 @@
+$breakpoint-up: (
+  'sm': 'screen and (min-width: 400px)',
+  'md': 'screen and (min-width: 768px)',
+  'lg': 'screen and (min-width: 1000px)',
+  'xl': 'screen and (min-width: 1200px)'
+) !default;
+
+$breakpoint-down: (
+  'sm': 'screen and (max-width: 399px)',
+  'md': 'screen and (max-width: 767px)',
+  'lg': 'screen and (max-width: 999px)',
+  'xl': 'screen and (max-width: 1199px)'
+) !default;
+
+@mixin mq-up($breakpoint: lg) {
+  @media #{map-get($breakpoint-up, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin mq-down($breakpoint: sm) {
+  @media #{map-get($breakpoint-down, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin ellipsis() {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@mixin arrow($width, $height, $borderWidth, $borderColor) {
+  width: #{$width}px;
+  height: #{$height}px;
+  border-top: #{$borderWidth}px solid $borderColor;
+  border-right: #{$borderWidth}px solid $borderColor;
+}
+
+@mixin triangle($borderWidth, $borderColor) {
+  border: #{$borderWidth}px solid $borderColor;
+  @include arrow(0, 0, $borderWidth, transparent);
+}
+
+@mixin placeholder($color) {
+  &::placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+}
+
+@mixin clearfix() {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+    width: 100%;
+    *zoom: 1;
+  }
+}
+
+@mixin fix-flex-bug($width: auto) {
+  flex-basis: #{$width};
+  flex-shrink: 0;
+  flex-grow: 0;
+  max-width: 100%;
+}
