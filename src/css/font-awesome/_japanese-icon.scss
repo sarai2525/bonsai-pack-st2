@@ -1,0 +1,249 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('/assets/fonts/fontawesome-ja.eot');
+  src: url('/assets/fonts/fontawesome-ja.eot#iefix') format('embedded-opentype'),
+    url('/assets/fonts/fontawesome-ja.woff') format('woff'),
+    url('/assets/fonts/fontawesome-ja.ttf') format('truetype'),
+    url('/assets/fonts/fontawesome-ja.svg#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?69728287#fontello') format('svg');
+  }
+}
+*/
+
+[class^='#{$fa-css-prefix}']:before,
+[class*=' #{$fa-css-prefix}']:before {
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: 0.2em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.#{$fa-css-prefix}-line:before {
+  content: '\e800';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-feedly:before {
+  content: '\e801';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-raspberrypi:before {
+  content: '\e802';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-sass:before {
+  content: '\e803';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-netflix:before {
+  content: '\e804';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-hatenabookmark:before {
+  content: '\e805';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-gulp:before {
+  content: '\e806';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-ubuntu:before {
+  content: '\e807';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-hulu:before {
+  content: '\e808';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-ruby:before {
+  content: '\e809';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-heroku:before {
+  content: '\e80a';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-gumtree:before {
+  content: '\e80b';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-jenkins:before {
+  content: '\e80c';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-nintendo:before {
+  content: '\e80d';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-fbmessenger:before {
+  content: '\e80e';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-mixi:before {
+  content: '\e80f';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-microsoftonenote:before {
+  content: '\e810';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-playstation:before {
+  content: '\e811';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-laravel:before {
+  content: '\e812';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-javascript:before {
+  content: '\e813';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-googleplay:before {
+  content: '\e814';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-bootstrap:before {
+  content: '\e815';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-meetup:before {
+  content: '\e816';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-kickstarter:before {
+  content: '\e817';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-microsoftaccess:before {
+  content: '\e818';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-microsoftpowerpoint:before {
+  content: '\e819';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-microsoftexcel:before {
+  content: '\e81a';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-microsoftoutlook:before {
+  content: '\e81b';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-microsoftword:before {
+  content: '\e81c';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-microsoft:before {
+  content: '\e81d';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-w3c:before {
+  content: '\e81e';
+  font-family: 'fontello';
+}
+
+/* '' */
+.#{$fa-css-prefix}-lego:before {
+  content: '\e81f';
+  font-family: 'fontello';
+}
+
+/* '' */
