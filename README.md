@@ -1,14 +1,11 @@
 # bonsai pack stage2
 
-## assage
+All files must webpack...
 
 ```
-# fisrt build
-$ yarn build or npm run build
-
 # dev mode
 $ yarn dev or npm run dev
 
-# after development then upload to production
+# when you finished development
 $ yarn build or npm run build
 ```
