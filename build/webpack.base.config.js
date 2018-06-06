@@ -1,23 +1,23 @@
 const path = require('path')
 const webpack = require('webpack')
 const glob = require('glob')
-const projectRoot = path.resolve(__dirname, '../')
-const SRC = path.resolve(projectRoot, 'src')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const AutoPreFixer = require('autoprefixer')
+const projectRoot = path.resolve(__dirname, '../')
+const SRC = path.resolve(projectRoot, 'src')
+const JS_SRC = path.resolve(SRC, 'js')
+/**
+ * ここでファイルの”名前”も正規表現で取ってしまうとjsディレクトリ内に
+ * file-loaderで出力しているファイル郡が全てJSファイルとして
+ * ビルドされてしまうので拡張子のみ指定する
+ */
+const REG_JS = new RegExp(`${SRC}/js/(.+).js`)
+const REG_IMG = new RegExp(`${SRC}/img/.(png|jpe?g|gif|svg)`)
+const REG_MOV = new RegExp(`${SRC}/movie/.(mp4|mov)`)
+const REG_FONTS = new RegExp(`${SRC}/fonts/.(woff|woff2|eot|ttf|svg|otf)`)
 
 const getWebpackConfig = () => {
-  /**
-   * ここでファイルの”名前”も正規表現で取ってしまうとjsディレクトリ内に
-   * file-loaderで出力しているファイル郡が全てJSファイルとして
-   * ビルドされてしまうので拡張子のみ指定する
-   */
-  const REG_JS = new RegExp(`${SRC}/js/(.+).js`)
-  const REG_IMG = new RegExp(`${SRC}/img/.(png|jpe?g|gif|svg)`)
-  const REG_MOV = new RegExp(`${SRC}/movie/.(mp4|mov)`)
-  const REG_FONTS = new RegExp(`${SRC}/fonts/.(woff|woff2|eot|ttf|svg|otf)`)
-
   const jsFiles = glob.sync(`${SRC}/js/**/*.bundle.js`)
   const imgFiles = glob.sync(`${SRC}/img/**/*`)
   const fontFiles = glob.sync(`${SRC}/fonts/**/*`)
@@ -44,10 +44,9 @@ const getWebpackConfig = () => {
     entry[key] = [file]
   })
 
-  entry['vendor'] = ['babel-polyfill', 'jquery']
+  entry['vendor'] = ['babel-polyfill']
   entry['style'] = [path.resolve(projectRoot, `src/css/style.scss`)]
 
-  console.log(entry)
   return { entry }
 }
 
@@ -63,7 +62,13 @@ module.exports = () => {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          use: { loader: 'babel-loader' }
+          use: {
+            loader: 'babel-loader',
+            options: {
+              babelrc: true,
+              extends: path.resolve(projectRoot, '.babelrc')
+            }
+          }
         },
         {
           test: /\.s?[ac]ss$/,
@@ -147,8 +152,8 @@ module.exports = () => {
     },
     resolve: {
       extensions: ['.js'],
-      modules: [path.resolve(SRC), 'node_modules'],
-      alias: { '@': SRC }
+      modules: [JS_SRC, 'node_modules'],
+      alias: { '@': JS_SRC }
     },
     externals: {
       $: 'jquery',
