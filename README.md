@@ -1,11 +1,9 @@
 # bonsai pack stage2
 
-All files must webpack...
-
 ```
-# dev mode
+# dev
 $ yarn dev or npm run dev
 
-# when you finished development
+# fin
 $ yarn build or npm run build
 ```
