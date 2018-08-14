@@ -55,7 +55,7 @@ module.exports = () => {
               options: {
                 plugins: [
                   AutoPreFixer({
-                    browsers: ['IE 10', 'IE 11', 'last 3 versions'],
+                    browsers: ['IE 10', 'IE 11', 'last 2 versions'],
                     grid: true
                   })
                 ]
@@ -63,7 +63,7 @@ module.exports = () => {
             },
             'sass-loader'
           ]
-        },
+        }
       ]
     },
     resolve: {
